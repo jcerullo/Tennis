@@ -1,0 +1,130 @@
+<?php
+	 session_start();
+	 $mbrID = $_SESSION["mbrID"];
+?>	  
+<html>
+<head>
+  <title>Tennis</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="main.css"> 
+  
+  <script> type = "text/javascript">
+  
+  $(init);
+  
+  function init() {
+	  // load up league list from DB
+	  $("#leagueList").load("leagueList.php");
+  }  //end init
+  
+  </script>
+
+ 
+</head>
+<body>
+<header class="container">
+<div id="wrapper">
+
+<nav id="nav">
+	<ul id="navigation">
+		<li><a href="indexProcess.php">Login</a></li>
+		<li><a href="#">Member Info &raquo;</a>
+			<ul>
+				<li><a href="members.php">MemberRoster</a></li>
+				<li><a href="mbrProfile.php">MemberProfile</a></li>
+				<li><a href="availability.php">MemberAvailability</a></li>
+				<li><a href="groupAvailability.html">GroupAvailability</a></li>
+				<li><a href="mbrRanking.php">Tennis Rankings</a></li>
+				<li><a href="sumResults.html">MemberStats</a></li>				
+			</ul>
+		</li>
+		<li><a href="#">Court Info &raquo;</a>
+			<ul>
+				<li><a href="facilities.php">Facilities</a></li>
+				<li><a href="facility.php">CourtAvailability</a></li>
+				<li><a href="assignments.html">DailyCourtAssignments</a></li>
+				<li><a href="schedule.php">WeeklyCourtAssignments</a></li>				
+			</ul>				
+		</li>
+		<li><a href="#">Play Results &raquo;</a>
+			<ul>
+				<li><a href="setResults.html">ResultsEntry</a></li>
+				<li><a href="sumResults.html">ResultsSummary</a></li>				
+			</ul>				
+		</li>
+		<li><a href="changeMonth.php">Change Month</a></li>
+		<li><a href="sendEmail.php">Format Email</a></li>
+		<li><a href="help.php">Help</a></li><br>
+	</ul>
+</nav>
+
+</div><!--end wrapper-->
+</header>
+
+<?php
+print <<<HERE
+<section class="jumbotron">
+  <div class="container">
+    <div class="row text-center">
+
+      <br><h2>The Villages</h2><br>
+      <h2>Tennis League Scheduler</h2><br>
+	  
+    <form action = "indexProcess.php" method= "post">
+      <fieldset> <br>	  
+		<label class="btn btn-primary">Select League :</label>
+        <select class="btn btn-primary" id="leagueList" name="leagueID" >
+		</select><br><br>
+        <input class="btn btn-primary" type="text" Placeholder="Member ID" value="$mbrID" id="txt_mbrID" name="mbrID" > <br><br>	 		
+        <input class="btn btn-primary" type="submit" value = "submit" id = "submit"/>  <br><br>		
+      </fieldset>
+    </form>
+		  	
+    </div>
+  </div>
+</section>
+HERE;
+?>
+<section class="container">
+ <div class="row">   
+   <figure class="col-sm-6">
+    <p>League Announcements</p>
+    <img src="league.jpg" alt= "league photo"/>
+    </figure>
+   
+    <figure class="col-sm-6">
+     <p>Special Events</p>
+     <img src = "event.jpg" alt= "event photo"/>
+    </figure> 
+ </div>
+</section>
+  
+  <footer class="container">
+  <div class="row">
+    <p class="col-sm-4">&copy; 2017 Site design by jcerullo@yahoo.com</p>
+    <ul class="col-sm-8">
+      
+      <li class="col-sm-1">
+       <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg">
+      </li>
+      
+     <li class="col-sm-1"> 
+       <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/facebook.svg">
+      </li>
+      
+     <li class="col-sm-1"> 
+       <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg">
+      </li>
+      
+     <li class="col-sm-1"> 
+       <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/medium.svg">
+      </li>
+      
+    </ul>
+  </div>
+  </footer>
+
+</body>
+</html>
