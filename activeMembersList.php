@@ -1,5 +1,5 @@
 <?php
-      session_start();
+      session_start();                   //modified on 2/23/21
 	  $leagueID = $_SESSION["leagueID"];
 
       try {
