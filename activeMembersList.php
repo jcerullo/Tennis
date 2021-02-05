@@ -1,9 +1,7 @@
 <?php
-<<<<<<< HEAD
-      session_start();                   // test comment
-=======
-      session_start();                   //modified on 2/23/21
->>>>>>> 8597bb9138a26c3a91e47d314076a27dafec0405
+
+      session_start();
+
 	  $leagueID = $_SESSION["leagueID"];
 
       try {
